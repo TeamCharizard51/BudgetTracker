@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-const MONGO_URI = 'mongodb+srv://dbIan:Mx414LHYkJNWXWQX@cluster0.olfkxt7.mongodb.net/?retryWrites=true&w=majority';
+const MONGO_URI = 'mongodb+srv://dbUser2:dbUser2@cluster0.ojwcp.mongodb.net/?retryWrites=true&w=majority';
+
+// 'mongodb+srv://dbIan:Mx414LHYkJNWXWQX@cluster0.olfkxt7.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose
   .connect(MONGO_URI, {
@@ -19,22 +21,34 @@ const userSchema = new Schema({
 
 const users = mongoose.model('userSchema', userSchema);
 
-const budgetSchema = new Schema({
-  budgetType: { type: String, required: true },
-  total: { type: Number, required: true },
+// const budgetSchema = new Schema({
+//   budgetType: { type: String, required: true },
+//   total: { type: Number, required: true },
+// })
+
+// const budgets = mongoose.model('budgetSchema', budgetSchema);
+
+const expensesSchema = new Schema({
+  amount: { type: Number, required: true },
+  merchant: {type: String, required: true },
+  date: { type: String, required: true },
+  type: { type: String, required: true }
 })
 
-const budgets = mongoose.model('budgetSchema', budgetSchema);
+
 
 const expenseSchema = new Schema({
-  budgetType: { type: Number, required: true },
-  expense: { type: Number, required: true },
-  merchant: {type: String, required: true },
-  date: { type: Date, required: true }
+  housing: [{name: {type: String, required: true }, merchant: String, date: { type: Date, required: true}, amount: { type: Number, required: true}}],
+  transportation: [{name: {type: String, required: true }, merchant: String, date: { type: Date, required: true}, amount: { type: Number, required: true}}],
+  food: [{name: {type: String, required: true }, merchant: String, date: { type: Date, required: true}, amount: { type: Number, required: true}}],
+  bills: [{name: {type: String, required: true }, merchant: String, date: { type: Date, required: true}, amount: { type: Number, required: true}}],
+  recreation: [{name: {type: String, required: true }, merchant: String, date: { type: Date, required: true}, amount: { type: Number, required: true}}],
+  essentials: [{name: {type: String, required: true }, merchant: String, date: { type: Date, required: true}, amount: { type: Number, required: true}}],
+  other: [{name: {type: String, required: true }, merchant: String, date: { type: Date, required: true}, amount: { type: Number, required: true}}]
 })
-const expenses = mongoose.model('expenseSchema', expenseSchema)
+const expenses = mongoose.model('expensesSchema', expensesSchema);
 
 module.exports = {
   users,
-  budgets,
+  expenses,
 }

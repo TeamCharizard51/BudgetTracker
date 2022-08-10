@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react';
+import TransactionsContainer from '../components/TransactionsContainer';
+import "./MainContainer.css"
 
 const MainContainer = () => {
 
@@ -52,8 +54,8 @@ const MainContainer = () => {
   }
 
   return (
-    <div>
-      {'hello'}
+    <div id="transactions">
+      <TransactionsContainer />
     </div>
   );
 }

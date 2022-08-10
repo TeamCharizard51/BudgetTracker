@@ -18,8 +18,8 @@ router.post('/createAccount', userController.createUser, (req, res) => {
 router.post('/login', (req, res) => {
   return res.status(200).json()
 })
-router.post('/addExpense', (req, res) => {
-  return res.status(200).json()
+router.post('/createTransaction', userController.createTransaction, (req, res) => {
+  return res.status(200).json(res.locals.newTransaction)
 })
 
 //update requests

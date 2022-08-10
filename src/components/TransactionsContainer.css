@@ -1,0 +1,65 @@
+#transactions-container{ 
+    background: rgb(239, 239, 239);
+    width: 720px;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 160px 220px 100px 230px;
+    grid-template-rows: 80px;
+    padding: 20px;
+    font-size: 17px;
+    /* font-family: 'Hind', sans-serif; */
+    /* text-align: center; */
+}
+
+#transactions-container input{
+    height: 26px;
+    font-size: 17px;
+    border: solid 1px rgb(204, 204, 204);
+    border-radius: 4px;
+}
+#transactions-container  select{
+    height: 29px;
+    font-size: 17px;
+    border-radius: 4px;
+}
+
+.titles{
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(126, 126, 126);
+}
+/* .amount{
+    padding-right: 30px;
+} */
+.merchant{
+    margin-left: 40px;
+}
+.date{
+    margin-left: 20px;
+
+}
+
+.type{
+    margin-left: 90px;
+    padding-left: 30px;
+}
+
+
+
+.button-div{
+    display: grid;
+    grid-template-columns: 601px 130px;
+    
+}
+
+#transactions-container button{
+    height: 29px;
+    grid-column: 2;
+    padding-left: 9px;
+    padding-right: 9px;
+    border-radius: 5px;
+    border-style: none;
+    background: rgb(239, 166, 49);
+    color: rgb(246, 246, 246);
+    cursor: pointer;
+}
