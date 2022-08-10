@@ -1,0 +1,73 @@
+#wrapper{
+  margin-top: 250px;
+  height: 0px;
+  background-color:rgba(0, 58, 102, 0.55)
+}
+
+#outerBox{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(243, 243, 243);
+}
+
+#loginBox {
+    display:flex;
+    font-size: 20px;
+    text-shadow: 2px 2px 5px rgb(43, 43, 43);
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    padding-top: 0px;
+
+}
+
+#loginBox input{
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+#loginBox button{
+  background-color: rgba(0, 58, 102, 0.55);
+  color: rgb(243, 243, 243);
+  border: 1.5px solid rgb(0, 66, 102);
+  border-radius: 5px;
+  padding: 5px;
+  width: 80px;
+}
+
+  #loginBox button:hover{
+    background-color: rgb(37, 108, 141);
+    -webkit-transform: translateY(-2px);
+    color: rgb(229, 229, 229);
+    transform: scale(1.08,1.08);
+    box-shadow: 1px 1px 1px rgb(43, 43, 43);
+    transition: .5s;
+  }
+
+
+/* #loginlink {
+  background-color: rgb(194, 166, 166);
+} */
+
+#loginBox form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#signupBox{
+  display:flex;
+  font-size: 20px;
+  text-shadow: 2px 2px 5px rgb(43, 43, 43);
+  color: white;
+  flex-direction: column;
+  align-items: center;
+}
+#signuplink {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}

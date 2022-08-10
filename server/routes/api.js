@@ -6,9 +6,6 @@ const userController = require('../controllers/controller')
 router.get('/', (req, res) => {
   return res.status(200).json()
 })
-router.get('/login', (req, res) => {
-  return res.status(200).json()
-})
 router.get('/getExpenses', (req, res) => {
   return res.status(200).json()
 })
@@ -17,6 +14,9 @@ router.get('/getExpenses', (req, res) => {
 router.post('/createAccount', userController.createUser, (req, res) => {
   console.log('post check!')
   return res.status(200).send('user created')
+})
+router.post('/login', (req, res) => {
+  return res.status(200).json()
 })
 router.post('/addExpense', (req, res) => {
   return res.status(200).json()
