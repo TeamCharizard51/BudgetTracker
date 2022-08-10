@@ -5,13 +5,12 @@ const userController = {}
 
 userController.createUser = async (req, res ,next) => {
     console.log('controller check')
-    const { username, password, email } = req.body;
+    const { username, password } = req.body;
     try {
-      if (username && password && email) {
+      if (username && password) {
         const user = await User.users.create({
           username: username,
           password: password,
-          email: email,
       })
       return next();
     }
