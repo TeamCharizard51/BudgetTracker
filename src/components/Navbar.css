@@ -1,20 +1,37 @@
 #navbar {
-  background-color: gray;
+  background-color: rgb(224, 224, 224);
   width: auto;
-  padding: 20px;
+  /* padding: 40px; */
+  height: 100px;
+  display: grid;
+  grid-template-rows: 2;
+  color: rgb(50, 49, 49);
+
 }
 
 #el {
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
+  align-items: center; */
+  /* background-color: gray; */
+  display: grid;
+  grid-template-columns: 150px 180px 140px 100px 1fr 200px;
+  padding-left: 60px;
+  grid-row: 2;
   align-items: center;
-  background-color: gray;
+  
+}
+
+.navbar{
+  font-size: 18px;
+  /* font-family: 'Hind', sans-serif; */
 }
 
 #el button{
   border: none;
   border-radius: 5px;
-  padding: 10px;
+  padding: 7px;
+  margin: 10px;
 }
 
 #el button:hover {
@@ -23,4 +40,14 @@
   -webkit-transform: translateY(-2px);
   transform: scale(1.08,1.08);
   box-shadow: 2px 2px 2px rgb(43, 43, 43);
+}
+
+#account{
+  grid-column: 6;
+  text-decoration: none;
+}
+
+#username{
+  text-decoration: none;
+  color: rgb(18, 18, 18);
 }
