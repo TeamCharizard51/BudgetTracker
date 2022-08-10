@@ -27,7 +27,7 @@ const MainContainer = () => {
       credentials: 'same-origin' 
     })
       .then((res) => res.json)
-      .then((res) => setData(res))
+      // .then((res) => setData(res))
       .catch((err) => {
         console.log(err)
       })
@@ -45,7 +45,7 @@ const MainContainer = () => {
       credentials: 'same-origin' 
     })
       .then((res) => res.json)
-      .then((res) => setExpenses(res))
+      // .then((res) => setExpenses(res))
       .catch((err) => {
         console.log(err)
       })
