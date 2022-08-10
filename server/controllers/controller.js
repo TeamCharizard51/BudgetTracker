@@ -40,4 +40,32 @@ userController.login = async (req, res, next) => {
   }
 }
 
+userController.createTransaction = async (req, res, next) => {
+  const { amount, merchant, date, type } = req.body;
+  try {
+    let transaction = await User.expenses.create({
+      amount: amount,
+      merchant: merchant,
+      date: date,
+      type: type
+    })
+    res.locals.newTransaction = transaction;
+    console.log('transaction added:', transaction);
+    return next();
+  }
+  catch (err) {
+    console.log(err)
+    next({ err: 'error at createTransaction'})
+  }
+}
+
+
+// const expenseSchema = new Schema({
+//   budgetType: { type: String, required: true },
+//   expense: { type: Number, required: true },
+//   merchant: {type: String, required: true },
+//   date: { type: Date, required: true }
+// })
+
+
 module.exports = userController;
