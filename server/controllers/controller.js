@@ -1,4 +1,4 @@
-// const { model, models } = require('mongoose')
+const { model, models } = require('mongoose')
 const User = require('../models/model')
 
 const userController = {}
@@ -41,6 +41,7 @@ userController.login = async (req, res, next) => {
 }
 
 userController.createTransaction = async (req, res, next) => {
+  console.log("create transaction checked")
   const { amount, merchant, date, type } = req.body;
   try {
     let transaction = await User.expenses.create({
@@ -60,12 +61,34 @@ userController.createTransaction = async (req, res, next) => {
 }
 
 
-// const expenseSchema = new Schema({
-//   budgetType: { type: String, required: true },
-//   expense: { type: Number, required: true },
-//   merchant: {type: String, required: true },
-//   date: { type: Date, required: true }
-// })
+userController.getTransactions = async (req, res, next) => {
+  try {
+    const data = await User.expenses.find();
+    res.json(data);
+  }
+  catch (err) {
+    console.log(err)
+    next({ err: 'error at getTransactions'})
+  }
 
 
+  
+    // let transactions = User.expenses.find({}, 'amount type merchant date', (err, expenses) => {
+    //   if (err) return next('Error getting transactions');
+    //   console.log('grabbing transactions');
+    //   res.locals.list = transactions;
+    //   return next();
+    // })
+  }
+
+userController.deleteExpense = async (req, res, next) => {
+  try {
+    const data = await User.expenses.find();
+    res.json(data);
+  }
+  catch (err) {
+    console.log(err)
+    next({ err: 'error at getTransactions'})
+  }
+}
 module.exports = userController;

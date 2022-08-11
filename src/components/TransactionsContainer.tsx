@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 import './TransactionsContainer.css';
-// const expensesSchema = new Schema({
-//   amount: { type: Number, required: true },
-//   merchant: {type: String, required: true },
-//   date: { type: String, required: true },
-//   type: { type: String, required: true }
-// })
+import TransactionList from './TransactionList';
 
     const TransactionsContainer = () => {
         const [amount, setAmount] = useState('');
@@ -13,6 +8,8 @@ import './TransactionsContainer.css';
         const [date, setDate] = useState('');
         const [type, setType] = useState('');
 
+        // TransactionList();
+  
         const amountChange = event => {
             setAmount(event.target.value);
             // console.log('value is:', event.target.value);
@@ -25,17 +22,9 @@ import './TransactionsContainer.css';
             setDate(event.target.value);
             // console.log('value is:', event.target.value);
         };
-        // const typeChange = event => {
-        //     setType(event.target.value);
-        //     // console.log('value is:', event.target.value);
-        // };
-
-        // const handleClick = event => {
-        // console.log('handleClick =>', amount);
-        // };
-
+        
+   
         const newTransaction = () => {
-
             fetch('/api/createTransaction', {
               method: 'POST',
               headers: {
@@ -54,7 +43,10 @@ import './TransactionsContainer.css';
               .catch((err) => {
                 console.log(err)
               })
+              setTimeout(() => window.location.reload(), 500)
           }
+
+          
 
         return (
             <div id="transactions-container">
@@ -85,10 +77,14 @@ import './TransactionsContainer.css';
                         <option value="other">Other</option>
                     </select>
                 </div>
+                {/* <div className="button-div">
+                    <button onClick={newTransaction} id="add-transaction-button">Add Transaction</button>
+                </div>     */}
+
+                <TransactionList />
                 <div className="button-div">
                     <button onClick={newTransaction} id="add-transaction-button">Add Transaction</button>
-                </div>    
-                
+                </div>   
             </div>
             );
         };

@@ -31,7 +31,7 @@ const users = mongoose.model('userSchema', userSchema);
 const expensesSchema = new Schema({
   amount: { type: Number, required: true },
   merchant: {type: String, required: true },
-  date: { type: String, required: true },
+  date: { type: String, required: true, default: Date.now },
   type: { type: String, required: true }
 })
 
@@ -51,4 +51,5 @@ const expenses = mongoose.model('expensesSchema', expensesSchema);
 module.exports = {
   users,
   expenses,
+  MONGO_URI
 }

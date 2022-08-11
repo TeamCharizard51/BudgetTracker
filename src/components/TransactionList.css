@@ -1,0 +1,42 @@
+/* #trans-amount{
+    grid-column: 1;
+}
+
+#trans-merchant{
+    grid-column: 2;
+} */
+
+
+#transaction{
+background: rgb(239, 239, 239);
+padding-top: 13px;
+width: 600px;
+display: grid; 
+grid-template-columns: 204px 200px 200px 150px 100px; 
+grid-template-rows: 22px;
+}
+#all-transactions{
+  /* overflow-x: scroll; */
+  grid-row: 3;
+  /* background: rgb(134, 60, 60);; */
+}
+
+
+.trans-items{
+    background: rgb(221, 103, 103);;
+}
+
+#edit-button{
+    border: none;
+    background: none;
+}
+#delete-button{
+    border: none;
+    background: none;
+}
+
+
+.trans-buttons{
+    height: 28px;
+    margin-top: 12px;
+}

@@ -15,7 +15,7 @@ function App() {
     <div id="App">
       <Navbar />
       <div id="components">
-      <div id='pieChart' style={{width: '300px', height: '300px'}}>
+      <div id='pieChart' style={{width: '400px', height: '400px'}}>
         <PieChart
           animate
           animationDuration={500}
@@ -39,7 +39,7 @@ function App() {
             },
           ]}
           labelPosition={50}
-          label={({ dataEntry }) => dataEntry.value + `%`}
+          label={({ dataEntry }) => dataEntry.value + `%` + dataEntry.title}
           labelStyle={{...defaultLabelStyle}}
           radius={50}
           viewBoxSize={[100, 100]}

@@ -1,12 +1,13 @@
 #transactions-container{ 
     background: rgb(239, 239, 239);
-    width: 720px;
+    width: 840px;
     border-radius: 8px;
     display: grid;
-    grid-template-columns: 160px 220px 100px 230px;
-    grid-template-rows: 80px;
+    grid-template-columns: 160px 220px 100px 270px 100px;
+    grid-template-rows: 80px 10px 20px;
     padding: 20px;
     font-size: 17px;
+    height: 50vw;
     /* font-family: 'Hind', sans-serif; */
     /* text-align: center; */
 }
@@ -47,16 +48,21 @@
 
 
 .button-div{
-    display: grid;
-    grid-template-columns: 601px 130px;
+    /* display: grid;
+    grid-template-columns: 601px 130px; */
+    grid-column: 5;
+    margin-top: 40px;
+    margin-right: 10px;
+
     
 }
 
-#transactions-container button{
-    height: 29px;
-    grid-column: 2;
-    padding-left: 9px;
-    padding-right: 9px;
+#add-transaction-button{
+    /* height: 29px; */
+    /* grid-column: 2; */
+    padding-left: 12px;
+    padding-right: 12px;
+    /* margin-left: 120px; */
     border-radius: 5px;
     border-style: none;
     background: rgb(239, 166, 49);

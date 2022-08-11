@@ -1,13 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/controller')
+const mongoose = require('mongoose');
+
 
 //get requests
 router.get('/', (req, res) => {
   return res.status(200).json()
 })
-router.get('/getExpenses', (req, res) => {
-  return res.status(200).json()
+router.get('/getTransactions', userController.getTransactions, (req, res) => {
+  return res.status(200).send({ transactions: res.locals.list });
 })
 
 //post requests
@@ -31,7 +33,7 @@ router.patch('/editExpense', (req, res) => {
 })
 
 //delete requests
-router.post('/deleteAccount', (req, res) => {
+router.post('/deleteExpense', userController.deleteExpense, (req, res) => {
   return res.status(200).send()
 })
 
