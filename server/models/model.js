@@ -3,6 +3,8 @@ const MONGO_URI = 'mongodb+srv://dbUser2:dbUser2@cluster0.ojwcp.mongodb.net/?ret
 
 // 'mongodb+srv://dbIan:Mx414LHYkJNWXWQX@cluster0.olfkxt7.mongodb.net/?retryWrites=true&w=majority';
 
+const bcrypt = require('bcryptjs');
+
 mongoose
   .connect(MONGO_URI, {
     useNewUrlParser: true,
@@ -15,8 +17,16 @@ mongoose
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  username: { type: String, required: true },
+  username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+});
+
+userSchema.pre('validate', function(next) {
+  const plainPassword = this.get('password')
+  const salt = bcrypt.genSaltSync(10)
+  const hashedPassword = bcrypt.hashSync(plainPassword, salt)
+  console.log(hashedPassword)
+  next()
 });
 
 const users = mongoose.model('userSchema', userSchema);
@@ -34,8 +44,6 @@ const expensesSchema = new Schema({
   date: { type: String, required: true, default: Date.now },
   type: { type: String, required: true }
 })
-
-
 
 const expenseSchema = new Schema({
   housing: [{name: {type: String, required: true }, merchant: String, date: { type: Date, required: true}, amount: { type: Number, required: true}}],

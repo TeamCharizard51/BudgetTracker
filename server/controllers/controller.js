@@ -4,7 +4,6 @@ const User = require('../models/model')
 const userController = {}
 
 userController.createUser = async (req, res ,next) => {
-    console.log('controller check')
     const { username, password } = req.body;
     try {
       if (username && password) {
@@ -12,6 +11,8 @@ userController.createUser = async (req, res ,next) => {
           username: username,
           password: password,
       })
+      console.log('account created: ', user);
+      res.locals.user = user;
       return next();
     }
 
@@ -23,20 +24,21 @@ userController.createUser = async (req, res ,next) => {
 }
 
 userController.login = async (req, res, next) => {
-  const { username, password } = req.body;
   try {
-    let user = await User.users.find({
-      username: username,
-      password: password,
-    });
+    const { username, password } = req.body
+    const user = await User.users.findOne({ username, password })
     if (user !== null) {
-      res.locals.user = user._id;
+      console.log('logging in: ', user);
+      res.locals.userId = user._id
       return next()
+    } else {
+      return res.redirect('/createAccount')
     }
   }
   catch (err) {
-    console.log(err)
-    next({ err: 'error at login'})
+    return res.status(400).json({
+      err: "User cannot be found. Please try again."
+    })
   }
 }
 

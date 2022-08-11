@@ -14,12 +14,12 @@ function Login() {
           <input type="password" placeholder="Password" name="password"required></input>
           <button type="submit" id='loginlink'>Login</button>
         </form>
-        <Link to='/app'>
+        {/* <Link to='/app'>
             <button>Login</button>
-        </Link>
+        </Link> */}
       </div>
       <div id='signupBox'>
-          <Link to='/signup' id='signuplink'>
+          <Link to='/createAccount' id='signuplink'>
               <p>Sign up?</p>
           </Link>
       </div>
