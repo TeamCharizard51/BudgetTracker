@@ -12,14 +12,13 @@ router.get('/getExpenses', (req, res) => {
 
 //post requests
 router.post('/createAccount', userController.createUser, (req, res) => {
-  console.log('post check!')
-  return res.status(200).send('user created')
+  return res.status(200).redirect('/app');
 })
-router.post('/login', (req, res) => {
-  return res.status(200).json()
+router.post('/login', userController.login, (req, res) => {
+  return res.status(200).redirect('/app');
 })
 router.post('/createTransaction', userController.createTransaction, (req, res) => {
-  return res.status(200).json(res.locals.newTransaction)
+  return res.status(200).json(res.locals.newTransaction);
 })
 
 //update requests
@@ -31,7 +30,7 @@ router.patch('/editExpense', (req, res) => {
 })
 
 //delete requests
-router.post('/deleteAccount', (req, res) => {
+router.delete('deleteExpense', (req, res) => {
   return res.status(200).send()
 })
 
